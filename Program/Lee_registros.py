@@ -10,7 +10,6 @@ def muestra():
     return render_template("test.html", data=registros)
 
         
-
 def leo_registros():
     # Genero la conexion con la base. 
     try:
@@ -54,7 +53,7 @@ def leo_registros():
 
     # Inicializo la lista con los registros para no duplicarlos.
     registros = []
-    
+
     # Recorro el set de registos.
     for reg in rows:
 
@@ -75,6 +74,9 @@ pdatabase = os.environ['hac_PDATABASE']
 ppassword =  os.environ['hac_PPASSWORD']
 ptabla =  os.environ['hac_PTABLA']
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)  # pragma: no cover
+    
 # Cierro la conexión a la base.
 #cur.close()
 
