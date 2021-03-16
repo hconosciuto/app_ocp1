@@ -1,3 +1,12 @@
+# ******************************************************************************************************************
+# * lee_registros.py: Aplicación para usar en las Demos de OCP Infra.
+# * Parte del repositorio: https://github.com/hconosciuto/app_ocp1
+# * Creada por: Hernan Conosciuto - Marzo 2021.
+# * Descripción: Lee los registros del postgresql y los muestra en app_ocp1.html con Flask.
+# * Historial:
+# * 20201-03-15: Hernan - Agregado de puerto e IP para abrir html desde OCP. 
+# ******************************************************************************************************************
+
 from flask import Flask, render_template
 import os, time
 import psycopg2
@@ -7,7 +16,7 @@ app = Flask(__name__)
 def muestra():
 
     registros = leo_registros()
-    return render_template("test.html", data=registros)
+    return render_template("app_ocp1.html", data=registros)
 
         
 def leo_registros():
@@ -61,6 +70,9 @@ def leo_registros():
 
         registros.append(registro)
 
+    # Cierro la conexión a la base.
+    cur.close()
+
     return tuple(registros)
 
 
@@ -74,9 +86,8 @@ pdatabase = os.environ['hac_PDATABASE']
 ppassword =  os.environ['hac_PPASSWORD']
 ptabla =  os.environ['hac_PTABLA']
 
+# Seteo para abrir la url desde OCP.
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)  # pragma: no cover
-    
-# Cierro la conexión a la base.
-#cur.close()
+
 

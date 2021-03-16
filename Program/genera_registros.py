@@ -1,3 +1,12 @@
+# ******************************************************************************************************************
+# * genera_registros.py: Aplicación para usar en las Demos de OCP Infra.
+# * Parte del repositorio: https://github.com/hconosciuto/app_ocp1
+# * Creada por: Hernan Conosciuto - Marzo 2021.
+# * Descripción: Genera nombres random con timestamp en un postgresql.
+# * Historial:
+# * 20201-03-16: Hernan - Cambio a public el repo y agregado de variable para tiempo del sleep.
+# ******************************************************************************************************************
+
 import psycopg2, os, random, time
 from datetime import datetime
 
@@ -8,6 +17,7 @@ puser = os.environ['hac_PUSERNAME']
 pdatabase = os.environ['hac_PDATABASE']
 ppassword =  os.environ['hac_PPASSWORD']
 ptabla =  os.environ['hac_PTABLA']
+tiempo = int(os.environ['hac_TIEMPO'])
 
 # Armo las ilstas de nombres y apellidos
 
@@ -76,11 +86,7 @@ while True:
     conn.commit()  
 
     # Espero 5 segundos
-    time.sleep(5)
-
-
-
-#insert into test  (fecha, nombre) values ('12-03-2021 12:43:35','Claudia')
+    time.sleep(tiempo)
 
 
 # Cierro la conexión a la base.
