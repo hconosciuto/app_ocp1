@@ -1,6 +1,6 @@
 # OCP Aplicación para DEMO
 
-El objetvio de esta aplicación es utlizarla coo demo de OCP.
+El objetvio de esta aplicación es utlizarla como demo de OCP.
 La misma crea registros en un lapso de tiempo configurable los cuales se componen de 2 partes, un timestamp y nombres random.
 Además de mostrar la creación de aplicaciones y cambio de congifuración por environment variables se puede utilizar para
 mostrar el uso del pod scaling y generar caga que puede visualizarse tanto en el Dashboard de OCP como en la parte de 
